@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sumedh.employee.model.EmployeeDetails;
 import com.sumedh.employee.service.EmployeeService;
+import com.sumedh.employee.service.EntityId;
 
 @RestController
 public class EmployeeController {
@@ -26,15 +27,15 @@ public class EmployeeController {
 	}
 
 	@PostMapping(value = "/getEmployee")
-	public ResponseEntity<EmployeeDetails> getEmployee(@RequestBody Integer id) {
+	public ResponseEntity<EmployeeDetails> getEmployee(@RequestBody EntityId id) {
 
-		return new ResponseEntity<EmployeeDetails>(employeeService.getEmployee(id), HttpStatus.OK);
+		return new ResponseEntity<EmployeeDetails>(employeeService.getEmployee(id.getId()), HttpStatus.OK);
 	}
 
 	@PostMapping(value = "/deleteEmployee")
-	public ResponseEntity<Boolean> deleteEmployee(@RequestBody Integer id) {
+	public ResponseEntity<Boolean> deleteEmployee(@RequestBody EntityId id) {
 
-		return new ResponseEntity<Boolean>(employeeService.deleteEmployee(id), HttpStatus.OK);
+		return new ResponseEntity<Boolean>(employeeService.deleteEmployee(id.getId()), HttpStatus.OK);
 	}
 
 	@GetMapping(value = "/getAllEmployee")

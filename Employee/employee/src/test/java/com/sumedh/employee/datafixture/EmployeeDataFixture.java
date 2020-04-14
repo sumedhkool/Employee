@@ -14,7 +14,7 @@ public class EmployeeDataFixture {
 
 	public static final Double salary = 50000.00d;
 
-	public static final String department = "Technologgy";
+	public static final String department = "Technology";
 
 	public static EmployeeDetails stadardEmployee() {
 		return new EmployeeDetails(id, name, salary, department);
